@@ -1,0 +1,76 @@
+/* Keep the button fixed at the top left of the viewport by default */
+.create-post-button {
+    position: fixed; /* Fixed relative to the viewport */
+    top: 20px;       /* Distance from the top of the viewport */
+    left: 20px;      /* Distance from the left of the viewport */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    z-index: 1000; /* Ensure it stays on top of other elements */
+  }
+  
+  .create-post-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Post list container is set to be scrollable */
+  .post-list-container {
+    padding-top: 80px; /* Provide space for the fixed button */
+    background-color: #f4f4f4;
+    overflow-y: auto;  /* Allow vertical scrolling */
+    max-height: calc(100vh - 80px); /* Full viewport height minus fixed button height */
+  }
+  
+  /* Styles for individual posts */
+  .post-card {
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto 20px; /* Center posts and add bottom margin */
+    overflow: hidden;   /* Hide any overflowing content */
+    transition: transform 0.3s;
+  }
+  
+  .post-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .post-image {
+    width: 100%;
+    height: auto;
+    display: block; /* Ensure images don't cause layout issues */
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .post-content {
+    padding: 15px;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Responsive adjustments for mobile screens */
+  @media (max-width: 768px) {
+    .create-post-button {
+      top: auto; /* Remove top positioning */
+      bottom: 20px; /* Position button at the bottom */
+      left: 120px;   /* Distance from the left of the viewport */
+      padding: 10px 20px;
+      font-size: 16px; /* Adjust font size if needed */
+    }
+  
+    .post-list-container {
+      padding-top: 20px; /* Adjust padding if needed for button at the bottom */
+    }
+  
+    .post-content {
+      font-size: 14px; /* Adjust font size for mobile if needed */
+    }
+  }
+  
