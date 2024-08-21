@@ -11,7 +11,7 @@ const PostList = ({userId}) => {
 
     useEffect(()=>{
         axios.get('http://localhost:5000/posts')
-        .then(response=>setPosts(response.data))
+        .then(response=>setPosts(response.data))  
         .catch(error=>alert(error.message))
     }, []);
 
@@ -33,7 +33,7 @@ const PostList = ({userId}) => {
         <button className='create-post-button' onClick={handleCreatePostClick}>create post</button>
         {
             posts.map(post=>(
-                <div key={post.id} className='post-card'>
+                <div key={post._id} className='post-card'>
                   {post.image && (
                   <img
                   src={typeof post.image === 'string' && post.image.startsWith('http') ? post.image : `http://localhost:5000${post.image}`}
@@ -43,7 +43,7 @@ const PostList = ({userId}) => {
                   )}
                   <div className='post-content'>
                   <p>{post.content}</p>
-                  <p><strong>Posted By:</strong> {post.userId.username}</p>
+                  <p><strong>Posted By:</strong> { post.userId.username }</p>
                   </div>
                 </div>
             ))
